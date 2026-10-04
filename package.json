@@ -1,0 +1,14 @@
+{
+  "name": "pakka-hf26",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test",
+    "evaluate:model": "node scripts/evaluate-model.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

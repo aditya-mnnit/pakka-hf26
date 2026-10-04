@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pakka? — turn group chat maybes into a plan</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <main>
+    <header>
+      <div class="brand">pakka<span>?</span></div>
+      <div class="eyebrow">Plans, with receipts.</div>
+      <h1>Was that actually decided?</h1>
+      <p class="intro">Paste a messy group conversation. Gemma separates confirmed plans from maybes and shows the exact line behind each suggestion. You decide what makes it onto your calendar.</p>
+    </header>
+
+    <section class="panel" aria-labelledby="input-heading">
+      <h2 id="input-heading">1. Add a conversation</h2>
+      <div class="two-col">
+        <label>Your friend's name <input id="name" placeholder="e.g. Riya" maxlength="80"></label>
+        <label>Reference date <input id="today" type="date"></label>
+      </div>
+      <label>Group chat text <textarea id="chat" rows="11" placeholder="Paste the conversation here. One message per line works best."></textarea></label>
+      <div class="button-row">
+        <button id="sample" class="secondary" type="button">Try a sample conversation</button>
+        <button id="analyze" type="button">Find the actual plan →</button>
+      </div>
+      <div class="provider-row">
+        <label><input type="radio" name="provider" value="local" checked> Run locally with Gemma 4 + Ollama</label>
+        <label id="cloud-option" hidden><input type="radio" name="provider" value="cloud"> Hosted Gemma 4 demo</label>
+      </div>
+      <p class="hint">Local mode keeps the pasted chat on your computer. Hosted mode, when configured, sends it to the Gemma API. Use a conversation you have permission to share.</p>
+      <p id="message" role="status" aria-live="polite"></p>
+    </section>
+
+    <section id="results" class="panel" hidden aria-labelledby="results-heading">
+      <h2 id="results-heading">2. Review what Gemma found</h2>
+      <p id="summary"></p>
+      <h3>Calendar candidates</h3>
+      <p class="hint">Only confirmed scheduled gatherings can be exported. Proposed events stay here for review but cannot enter the calendar.</p>
+      <div id="event-cards"></div>
+      <h3>Checklist: commitments and open items</h3>
+      <p class="hint">Supplies, RSVPs, tasks, and questions are follow-ups, never calendar events.</p>
+      <div id="task-cards"></div>
+      <h3>Still needs an answer</h3>
+      <ul id="questions"></ul>
+      <div class="button-row">
+        <button id="download" type="button">Download reviewed plan (.ics)</button>
+      </div>
+      <p id="rejected" class="hint"></p>
+    </section>
+    <footer>Built for Hacktoberfest 2026. Open model, visible evidence, human confirmation.</footer>
+  </main>
+  <script type="module" src="/app.js"></script>
+</body>
+</html>

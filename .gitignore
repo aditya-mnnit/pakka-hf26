@@ -1,0 +1,19 @@
+# Local configuration and credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Dependencies, logs, and OS files
+node_modules/
+npm-debug.log*
+.DS_Store
+
+# Downloaded model weights and installers
+.ollama/
+models/
+*.gguf
+ollama-darwin.tgz
+ollama-*.tgz
+evaluation-results/
